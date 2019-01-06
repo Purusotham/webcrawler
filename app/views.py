@@ -15,7 +15,7 @@ def parse_html(request):
     try:
         data = json_loads(request.body)
         response = WebCrawler(data.get('url', ''),
-                              data.get('depth', 1)).spiderbot()
+                              int(data.get('depth', 1))).spiderbot()
         return HttpResponse(json_dumps(response))
     except Exception as error:
         print('Exception in parse_html...:' + str(error))
