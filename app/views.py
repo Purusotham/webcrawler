@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request):
-    return HttpResponse("main page..:")
+    return render(request, 'index.html')
 
 
 @csrf_exempt
@@ -15,7 +15,7 @@ def parse_html(request):
     try:
         data = json_loads(request.body)
         response = WebCrawler(data.get('url', ''),
-                              data.get('depth', 1)).parse_html_from_url()
+                              data.get('depth', 1)).spiderbot()
         return HttpResponse(json_dumps(response))
     except Exception as error:
         print('Exception in parse_html...:' + str(error))
