@@ -13,9 +13,9 @@ def index(request):
 @csrf_exempt
 def parse_html(request):
     try:
-        data = json_loads(request.body)
+        data = json_loads(request.body.decode('utf-8'))
         response = WebCrawler(data.get('url', ''),
-                              int(data.get('depth', 1))).spiderbot()
+                              int(data.get('depth', '') or 1)).spiderbot()
         return HttpResponse(json_dumps(response))
     except Exception as error:
         print('Exception in parse_html...:' + str(error))

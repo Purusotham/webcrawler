@@ -40,7 +40,7 @@ class WebCrawler:
     def spiderbot(self):
         try:
             # Validations
-            if Commons().validate_web_url(self.base_url):
+            if not re_match('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+', self.base_url):
                 return {'status_id': 0,
                         'reason': 'Please enter a valid url'}
             if self.depth < 1:
