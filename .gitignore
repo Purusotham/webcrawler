@@ -1,2 +1,4 @@
 .idea/*
 env/*
+app/__pycache__/*
+app/handlers/__pycache__/*

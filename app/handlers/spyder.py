@@ -39,6 +39,13 @@ class WebCrawler:
 
     def spiderbot(self):
         try:
+            # Validations
+            if Commons().validate_web_url(self.base_url):
+                return {'status_id': 0,
+                        'reason': 'Please enter a valid url'}
+            if self.depth < 1:
+                return {'status_id': 0,
+                        'reason': 'Please enter a depth greater than 0'}
             # For URLs
             result_url_dict = {}
 
