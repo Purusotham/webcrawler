@@ -185,7 +185,7 @@ tr:nth-child(even) {
 
             $.ajax({
                 type: 'POST',
-                url: '/app/parse_html',
+                url: 'http://ec2-3-1-8-218.ap-southeast-1.compute.amazonaws.com/app/parse_html',
                 data: JSON.stringify(data),
                 contentType: false,
                 processData: false,
@@ -202,6 +202,12 @@ tr:nth-child(even) {
                         });
                     } else {
                         alert(response.reason);
+
+                        $('#imageTable tbody').empty();
+                        $('#imageTable tbody').append('<tr style="text-align: center;"><td colspan="2" >No Data to show</td></tr>');
+
+                        $('#myTable tbody').empty();
+                        $('#myTable tbody').append('<tr style="text-align: center;"><td colspan="2" >No Data to show</td></tr>');
                     }
 
                 }
