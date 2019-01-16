@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## Built With
 
-* [Django](https://docs.djangoproject.com/en/2.1/) - The Micro Web framework used
+* [Django](https://docs.djangoproject.com/en/2.1/) - The Web framework used
 * [Pypi](https://pypi.python.org/) - Dependency Management
 
 
